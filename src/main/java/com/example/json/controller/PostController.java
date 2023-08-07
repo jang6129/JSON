@@ -19,12 +19,14 @@ public class PostController {
         this.postService = postService;
     }
 
+    // api 요청 -> 매핑 -> db에 저장
     @GetMapping("/fetch")
     public String fetchAndSavePosts() throws JsonProcessingException {
         postService.fetchAndSavePosts();
         return "Posts fetched and saved successfully!";
     }
 
+    // 저장된 데이터 반환
     @GetMapping
     public List<Post> getAllPosts() {
         return postService.getAllPosts();
